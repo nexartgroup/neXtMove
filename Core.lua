@@ -165,6 +165,7 @@ local DEFAULTS = {
     accent = "class",       -- Akzentfarbe: class | green | blue | gold | white
     panel = false,          -- dunkle Flaeche hinter der Anzeige
     useParty = true,        -- Vorschlaege an die Zusammensetzung der Gruppe anpassen (Party.lua)
+    moveDelay = 1.5,        -- so lange am Stueck laufen, bis Bewegung die Vorschlaege aendert (Sekunden oder "never")
     -- Randfarben je Art des Moves (frei waehlbar)
     colHeal = { 0.30, 0.85, 0.40 },     -- Essen, Verband, Heiltrank, Gesundheitsstein
     colMana = { 0.30, 0.60, 1.00 },     -- Trinken, Manatrank, Manastein

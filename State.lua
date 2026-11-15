@@ -857,15 +857,18 @@ function State:Snapshot()
     S.gcd = ReadGCD(now, S.gcdLen)
     S.pet = (Plain(UnitExists("pet")) and not Plain(UnitIsDead("pet"))) and true or false
     S.petDead = (Plain(UnitExists("pet")) and Plain(UnitIsDead("pet"))) and true or false
-    -- in Bewegung (seit einer halben Sekunde): Zauber mit Zauberzeit gehen dann nicht
+    -- in Bewegung: Zauber mit Zauberzeit gehen dann nicht. Das gilt erst, wenn man eine Weile
+    -- am Stueck laeuft (Einstellung moveDelay): ein Schritt zur Seite soll die Vorschlaege
+    -- nicht umwerfen, Fliehen oder Verfolgen schon. "never": Bewegung zaehlt gar nicht.
     -- (die Geschwindigkeit ist im Kampf geheim; dann zaehlen die Ereignisse "laeuft los" und
     -- "bleibt stehen")
     local speed = Get(GetUnitSpeed, "player")
     local moving
     if speed ~= nil then moving = speed > 0 else moving = self.movingEvent and true or false end
-    if moving then
+    local delay = NM.db and NM.db.moveDelay
+    if moving and delay ~= "never" then
         self.movingSince = self.movingSince or now
-        S.moving = (now - self.movingSince) > 0.5
+        S.moving = (now - self.movingSince) > (tonumber(delay) or 1.5)
     else
         self.movingSince = nil
         S.moving = false

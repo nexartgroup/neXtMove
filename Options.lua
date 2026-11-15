@@ -156,6 +156,13 @@ local function BuildPages()
                   return (v == "fast" and T("schnell töten", "kill fast")) or (v == "thrifty" and T("sparsam", "thrifty")) or "auto"
               end },
             { kind = "toggle", key = "clickIcons", label = T("Move 1 und 2 anklickbar (außerhalb des Kampfes)", "Moves 1 and 2 clickable (out of combat)") },
+            { kind = "choice", key = "moveDelay", label = T("Bewegung ändert die Vorschläge erst nach", "Movement changes the suggestions only after"),
+              values = { 0.5, 1, 1.5, 2, 3, 5, "never" },
+              format = function(v)
+                  if v == "never" then return T("nie (Bewegung ignorieren)", "never (ignore movement)") end
+                  local n = tostring(v):gsub("%.", T(",", "."))
+                  return (T("%s Sekunden Laufen", "%s seconds of moving")):format(n)
+              end },
           } },
         { id = "look", name = T("Aussehen", "Appearance"),
           hint = T("Größe, Form und Farbe der Anzeige, und ob sie sich bewegt.", "Size, shape and color of the display, and whether it moves."),
