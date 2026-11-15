@@ -1,0 +1,4 @@
+<Bindings>
+	<Binding name="CLICK NextMoveButton1:LeftButton" header="NEXTMOVE" category="ADDONS" />
+	<Binding name="CLICK NextMoveButton2:LeftButton" category="ADDONS" />
+</Bindings>

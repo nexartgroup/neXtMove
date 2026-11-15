@@ -1,0 +1,41 @@
+## Interface: 16001
+## Title: neXtMove
+## Author: nexartgroup
+## Notes: Rotation helper for all nine classes of WoW Forever: shows the best and second-best next move, each with its follow-up and the key that fires it. Two utility keys for interrupt, stun, healing and more. Priorities derived from the mod-playerbots strategies.
+## Notes-deDE: Rotationshilfe fuer alle neun Klassen von WoW Forever: zeigt die beste und zweitbeste naechste Wahl, jeweils mit Folge und der Taste, die sie ausloest. Zwei Hilfstasten fuer Unterbrechen, Betaeuben, Heilung und mehr. Prioritaeten abgeleitet aus den Strategien von mod-playerbots.
+## Version: 0.13.0
+## Category: Combat
+## IconTexture: Interface\Icons\Ability_Rogue_SliceDice
+## SavedVariables: NextMoveDB
+## SavedVariablesPerCharacter: NextMoveCharDB
+## AddonCompartmentFunc: NextMove_OnAddonCompartmentClick
+## AddonCompartmentFuncOnEnter: NextMove_OnAddonCompartmentEnter
+## AddonCompartmentFuncOnLeave: NextMove_OnAddonCompartmentLeave
+
+# Bindings.xml steht absichtlich nicht hier: der Client laedt eine Datei dieses Namens aus dem
+# Addon-Ordner von selbst, und ein zweiter Eintrag wuerde jede Taste doppelt anlegen.
+
+Core.lua
+State.lua
+Party.lua
+Consumables.lua
+Model.lua
+Engine.lua
+
+# Klassen: jede Datei meldet sich nur an, wenn sie zur Klasse des Charakters gehoert
+Classes\Rogue.lua
+Classes\Warlock.lua
+Classes\Mage.lua
+Classes\Hunter.lua
+Classes\Warrior.lua
+Classes\Paladin.lua
+Classes\Priest.lua
+Classes\Shaman.lua
+Classes\Druid.lua
+
+Secure.lua
+Click.lua
+Bars.lua
+UI.lua
+Options.lua
+Probe.lua
